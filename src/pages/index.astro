@@ -1,6 +1,8 @@
 ---
 import { Button } from "@/components/ui/button";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import { HiOutlineExternalLink } from "react-icons/hi";
+
 
 const sections: {
   id: string;
@@ -16,10 +18,10 @@ const sections: {
     title: "Intro",
     videos: [
       {
-        id: "QWyNI05yws8",
-        title: "WakaTime for Teams Onboarding",
+        id: "v0tQFCbQCfc",
+        title: "What is WakaTime?",
         description:
-          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit officia ullam perspiciatis voluptas libero magnam vitae incidunt nihil rem ea.",
+          "Setting up WakaTime for automatic time tracking and programming metrics.",
       },
     ],
   },
@@ -29,15 +31,15 @@ const sections: {
     videos: [
       {
         id: "Mvqg0mh3iM4",
-        title: "How to Install the WakaTime plugin for VS Code",
+        title: "Install WakaTime for VS Code",
         description:
-          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit officia ullam perspiciatis voluptas libero magnam vitae incidunt nihil rem ea.",
+          "Step-by-step guide for installing the open source WakaTime plugin for VS Code.",
       },
       {
         id: "CpPhIzXpSlc",
-        title: "Install the WakaTime plugin for Jetbrains IDEs",
+        title: "Install WakaTime for Jetbrains IDEs",
         description:
-          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit officia ullam perspiciatis voluptas libero magnam vitae incidunt nihil rem ea.",
+          "Step-by-step guide for installing the open source WakaTime plugin for Jetbrains IDEs, such as IntelliJ IDEA, PyCharm, etc.",
       },
     ],
   },
@@ -47,9 +49,9 @@ const sections: {
     videos: [
       {
         id: "QWyNI05yws8",
-        title: "WakaTime for Teams Onboarding",
+        title: "Onboarding your team",
         description:
-          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit officia ullam perspiciatis voluptas libero magnam vitae incidunt nihil rem ea.",
+          "Set up a WakaTime dashboard for your dev team.",
       },
     ],
   },
@@ -59,15 +61,15 @@ const sections: {
     videos: [
       {
         id: "xn_u_NR2PnE",
-        title: "New Feature: Alerts for devs on your team",
+        title: "Team dashboard alerts",
         description:
-          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit officia ullam perspiciatis voluptas libero magnam vitae incidunt nihil rem ea.",
+          "Get daily or weekly alerts for devs on your team dashboard.",
       },
       {
         id: "azKFZL9wy6Q",
         title: "Invoicing with WakaTime",
         description:
-          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit officia ullam perspiciatis voluptas libero magnam vitae incidunt nihil rem ea.",
+          "Automatically fill in and generate your invoices with WakaTime.",
       },
     ],
   },
@@ -79,7 +81,12 @@ const sections: {
     <header
       class="border-b h-16 px-4 md:px-8 z-40 flex items-center sticky top-0 bg-background"
     >
-      <a href="/" class="text-xl font-semibold">Wakatime</a>
+    <div class="flex-1">
+      Guides <span class="text-muted-foreground ml-1 text-sm relative top-[3px]">by <a href="https://wakatime.com" class="font-semibold">WakaTime</a></span> 
+      </div>
+    <div class="flex-none">
+      <Button class="font-semibold"><a href="https://wakatime.com" class="whitespace-nowrap" target="_blank">WakaTime.com<span class="ml-1 inline-block relative top-0.5"><HiOutlineExternalLink /></span></a></Button>
+      </div>
     </header>
 
     <aside
@@ -111,7 +118,7 @@ const sections: {
                   <a href={`#${section.id}`}>{section.title}</a>
                 </h2>
               </div>
-              <div class="space-y-12 mt-8">
+              <div class="space-y-12 mt-10">
                 {section.videos.map((video) => (
                   <div>
                     <iframe
@@ -122,10 +129,10 @@ const sections: {
                       allowfullscreen
                       class="w-full aspect-video"
                     />
-                    <h3 class="text-2xl font-semibold text-foreground mt-4">
+                    <h3 class="text-2xl font-semibold text-foreground mt-3">
                       {video.title}
                     </h3>
-                    <div class="prose dark:prose-invert md:prose-lg mt-2">
+                    <div class="prose dark:prose-invert md:prose-lg mt-2 mb-6">
                       <p>{video.description}</p>
                     </div>
                   </div>
