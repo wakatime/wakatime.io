@@ -1,0 +1,140 @@
+---
+import { Button } from "@/components/ui/button";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const sections: {
+  id: string;
+  title: string;
+  videos: {
+    id: string;
+    title: string;
+    description: string;
+  }[];
+}[] = [
+  {
+    id: "intro",
+    title: "Intro",
+    videos: [
+      {
+        id: "QWyNI05yws8",
+        title: "WakaTime for Teams Onboarding",
+        description:
+          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit officia ullam perspiciatis voluptas libero magnam vitae incidunt nihil rem ea.",
+      },
+    ],
+  },
+  {
+    id: "installing",
+    title: "Installing",
+    videos: [
+      {
+        id: "Mvqg0mh3iM4",
+        title: "How to Install the WakaTime plugin for VS Code",
+        description:
+          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit officia ullam perspiciatis voluptas libero magnam vitae incidunt nihil rem ea.",
+      },
+      {
+        id: "CpPhIzXpSlc",
+        title: "Install the WakaTime plugin for Jetbrains IDEs",
+        description:
+          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit officia ullam perspiciatis voluptas libero magnam vitae incidunt nihil rem ea.",
+      },
+    ],
+  },
+  {
+    id: "teams",
+    title: "Teams",
+    videos: [
+      {
+        id: "QWyNI05yws8",
+        title: "WakaTime for Teams Onboarding",
+        description:
+          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit officia ullam perspiciatis voluptas libero magnam vitae incidunt nihil rem ea.",
+      },
+    ],
+  },
+  {
+    id: "cool-features",
+    title: "Cool Features",
+    videos: [
+      {
+        id: "xn_u_NR2PnE",
+        title: "New Feature: Alerts for devs on your team",
+        description:
+          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit officia ullam perspiciatis voluptas libero magnam vitae incidunt nihil rem ea.",
+      },
+      {
+        id: "azKFZL9wy6Q",
+        title: "Invoicing with WakaTime",
+        description:
+          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit officia ullam perspiciatis voluptas libero magnam vitae incidunt nihil rem ea.",
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout>
+  <main>
+    <header
+      class="border-b h-16 px-4 md:px-8 z-40 flex items-center sticky top-0 bg-background"
+    >
+      <a href="/" class="text-xl font-semibold">Wakatime</a>
+    </header>
+
+    <aside
+      class="fixed z-20 left-0 top-0 bottom-0 w-72 border-r overflow-y-auto pt-16 max-md:hidden"
+    >
+      <nav class="flex flex-col gap-px p-4">
+        {
+          sections.map((section) => (
+            <a
+              href={`#${section.id}`}
+              class="flex items-center px-4 h-10 rounded-md hover:bg-muted focus:bg-muted font-medium text-muted-foreground hover:text-foreground focus:text-foreground transition-colors"
+            >
+              {section.title}
+            </a>
+          ))
+        }
+      </nav>
+    </aside>
+
+    <div class="md:ml-72">
+      <div
+        class="mx-auto container max-w-screen-md px-4 pt-8 md:px-8 md:pt-16 pb-32 space-y-16"
+      >
+        {
+          sections.map((section) => (
+            <section>
+              <div class="pb-4 border-b">
+                <h2 id={section.id} class="text-3xl font-semibold">
+                  <a href={`#${section.id}`}>{section.title}</a>
+                </h2>
+              </div>
+              <div class="space-y-12 mt-8">
+                {section.videos.map((video) => (
+                  <div>
+                    <iframe
+                      src={`https://www.youtube.com/embed/${video.id}`}
+                      title={video.title}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerpolicy="strict-origin-when-cross-origin"
+                      allowfullscreen
+                      class="w-full aspect-video"
+                    />
+                    <h3 class="text-2xl font-semibold text-foreground mt-4">
+                      {video.title}
+                    </h3>
+                    <div class="prose dark:prose-invert md:prose-lg mt-2">
+                      <p>{video.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+          ))
+        }
+      </div>
+    </div>
+  </main>
+</BaseLayout>
