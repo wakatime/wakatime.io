@@ -1,0 +1,28 @@
+{
+  "name": "wakatime.io",
+  "version": "1.0.0",
+  "description": "Resources and documentation for learning about WakaTime",
+  "scripts": {
+    "watch": "npx tailwindcss -i ./src/style.css -o ./dist/style.css --watch",
+    "build": "npx tailwindcss -i ./src/style.css -o ./dist/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/wakatime/wakatime.io.git"
+  },
+  "author": "WakaTime, LLC",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/wakatime/wakatime.io/issues"
+  },
+  "homepage": "https://github.com/wakatime/wakatime.io#readme",
+  "dependencies": {
+    "@radix-ui/react-icons": "^1.3.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "shadcn-ui": "^0.9.0",
+    "tailwind-merge": "^2.5.2",
+    "tailwindcss": "^3.4.10",
+    "tailwindcss-animate": "^1.0.7"
+  }
+}
