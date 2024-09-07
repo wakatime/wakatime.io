@@ -138,7 +138,13 @@ const sections: {
               </div>
               <div class="space-y-12 mt-10">
                 {section.videos.map((video) => (
-                  <div>
+                  <div class="mb-6">
+                    <h3 class="text-2xl font-semibold text-foreground mt-3">
+                      {video.title}
+                    </h3>
+                    <div class="prose dark:prose-invert md:prose-lg mt-2 mb-2">
+                      <p>{video.description}</p>
+                    </div>
                     <iframe
                       src={`https://www.youtube.com/embed/${video.id}`}
                       title={video.title}
@@ -147,12 +153,6 @@ const sections: {
                       allowfullscreen
                       class="w-full aspect-video"
                     />
-                    <h3 class="text-2xl font-semibold text-foreground mt-3">
-                      {video.title}
-                    </h3>
-                    <div class="prose dark:prose-invert md:prose-lg mt-2 mb-6">
-                      <p>{video.description}</p>
-                    </div>
                   </div>
                 ))}
               </div>
